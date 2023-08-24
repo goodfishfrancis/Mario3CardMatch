@@ -27,14 +27,14 @@ class ViewController: UIViewController {
     var matchCount : Int = 0;
     var firstFlip = true;
     var previousRoundScore = 0;
-    var roundCount = 1;
+    var roundCount = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // shuffle deck
-        cardImageArray.shuffle();
+        // start new round
+        newRound();
         
         // display score
         lblScore.text = "\(Int(score))"
@@ -354,6 +354,11 @@ class ViewController: UIViewController {
         // shuffle deck
         cardImageArray.shuffle();
     }
+    
+    @IBAction func unwindHelp(unwindSegue: UIStoryboardSegue){
+        
+    }
+
     
     
     // this function checks all cards on the board
