@@ -1,6 +1,16 @@
 # Mario3CardMatch
 Card Match game From Mario Bros 3
 
+Match Values: 
+
+| Card Type | Value |
+|-----------|-------|
+|  Mushroom | 1     |
+|  Flower   | 2     |
+|  Star     | 5     | 
+|  1up      | 7     | 
+|  10coin   | 10    | 
+|  20coin   | 20    |
 
 Each turn consists of 2 card flips
 
@@ -16,4 +26,4 @@ round with the points from the previous round.
 # WARNING 
 Pressing Reset will reset all progress. 
 
-Match Values: Mushroom - 1, Flower = 2, Star = 5, 1up = 7, 10coin = 10, 20coin = 20
+
