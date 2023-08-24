@@ -1,4 +1,4 @@
-# Mario3CardMatch
+# Mario 3 Card Match
 
 **Card Match game From Mario Bros 3**
 
