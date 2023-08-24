@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     var matchCount : Int = 0;
     var firstFlip = true;
     var previousRoundScore = 0;
-    var roundCount = 1;
+    var roundCount = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
