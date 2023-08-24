@@ -14,6 +14,6 @@ Win a round by successfully matching all cards without missing twice. After winn
 round with the points from the previous round. 
 
 # WARNING 
-Pressing Reset will reset all progress. Pressing Help will cause a new board to appear. Fix to be implemented in the future. 
+Pressing Reset will reset all progress. 
 
 Match Values: Mushroom - 1, Flower = 2, Star = 5, 1up = 7, 10coin = 10, 20coin = 20
