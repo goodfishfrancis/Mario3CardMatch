@@ -13,7 +13,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mario_3_Card_Match_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="marioGameInstructions" translatesAutoresizingMaskIntoConstraints="NO" id="rgH-OO-tak">
@@ -200,13 +200,16 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="70w-rz-g6d" kind="show" id="pmv-sm-0Mg"/>
+                                    <segue destination="70w-rz-g6d" kind="popoverPresentation" popoverAnchorView="mNe-X6-XAd" id="LI4-NF-2GM">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <navigationItem key="navigationItem" id="qsw-hi-qME"/>
                     <connections>
                         <outlet property="btnCardImg_0" destination="Ks3-73-HBA" id="q8b-Pl-g0c"/>
                         <outlet property="btnCardImg_1" destination="rXT-aK-aTF" id="Y0L-xP-RnD"/>
@@ -246,7 +249,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="9fD-uk-Gad"/>
+                                    <segue destination="BrD-lq-j9J" kind="unwind" unwindAction="unwindHelpWithUnwindSegue:" id="eeJ-aH-cJd"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to the Help Section!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ii-be-lUh">
@@ -324,8 +327,10 @@
                         <viewLayoutGuide key="safeArea" id="KdB-cD-dM4"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <navigationItem key="navigationItem" id="sXK-qe-29Q"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UxY-Q9-4gC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BrD-lq-j9J" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1112.8" y="26.53673163418291"/>
         </scene>

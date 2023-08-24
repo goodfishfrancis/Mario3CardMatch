@@ -355,6 +355,11 @@ class ViewController: UIViewController {
         cardImageArray.shuffle();
     }
     
+    @IBAction func unwindHelp(unwindSegue: UIStoryboardSegue){
+        
+    }
+
+    
     
     // this function checks all cards on the board
     // if every card is turned over the round is over
