@@ -33,8 +33,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // shuffle deck
-        cardImageArray.shuffle();
+        // start new round
+        newRound();
         
         // display score
         lblScore.text = "\(Int(score))"
