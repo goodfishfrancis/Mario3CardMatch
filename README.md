@@ -1,5 +1,6 @@
 # Mario3CardMatch
-Card Match game From Mario Bros 3
+
+**Card Match game From Mario Bros 3**
 
 <div>
   <img src="/Mario%203%20Card%20Match!/Mario%203%20Card%20Match!/Assets.xcassets/readme.imageset/game_screen.png" width="165" height="200">
