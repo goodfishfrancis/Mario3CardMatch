@@ -7,6 +7,32 @@
 //
 
 import UIKit
+import AVKit
+
+
+class SoundManager {
+    
+    static let instance = SoundManager();
+    
+    var player: AVAudioPlayer?
+    
+    func playSound(sound: String) {
+        
+        guard let url = Bundle.main.url(forResource: sound,
+                                        withExtension: ".wav") else {return};
+//        guard let url = URL(string: "") else {return};
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url);
+            player?.play();
+        }
+        catch let error {
+            print("Error playing sound... \(error.localizedDescription)");
+        }
+        
+    }
+    
+}
 
 
 class ViewController: UIViewController {
@@ -199,6 +225,7 @@ class ViewController: UIViewController {
     // this function sets the image of the button from the cardBack image to
     // the face image that corresponds to the index passed in
     func cardFlip(index: Int, btnCard: UIButton) {
+        SoundManager.instance.playSound(sound: "smb3_inventory_open_close");
         let image = UIImage(named: cardImageArray[index])
         btnCard.setImage(image, for: .normal)
         UIView.transition(with: btnCard, duration: 0.3, options: [.transitionFlipFromLeft, .showHideTransitionViews], animations: nil, completion: nil);
@@ -220,8 +247,17 @@ class ViewController: UIViewController {
             
             // if the card flipped matches the last card
             // flipped...
-            if (cardImageArray[index] == cardImageArray[lastCardFlippedIndex!]) {
-                
+            let flippedCard = cardImageArray[index];
+            if (flippedCard == cardImageArray[lastCardFlippedIndex!]) {
+                if (flippedCard == "oneUp") {
+                    SoundManager.instance.playSound(sound: "smb3_1-up");
+                }
+                else if (flippedCard == "tenCoin" || flippedCard == "twentyCoin") {
+                    SoundManager.instance.playSound(sound: "smb3_coin");
+                }
+                else {
+                    SoundManager.instance.playSound(sound: "smb3_nspade_match");
+                }
                 // increment matchCount
                 matchCount += 1;
                 
@@ -233,6 +269,7 @@ class ViewController: UIViewController {
                 
                 // display new score
                 lblScore.text = "\(Int(score))";
+                
                 
                 // set firstFlip to true for next turn
                 firstFlip = true;
@@ -248,7 +285,7 @@ class ViewController: UIViewController {
                     let alertController = UIAlertController(title: "New Round", message: "Congratulations! You won! Proceed to the next round...", preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
                     self.present(alertController, animated: true, completion: nil)
-                    
+                    SoundManager.instance.playSound(sound: "smb3_level_clear");
                     
                     // start new round
                     newRound();
@@ -257,7 +294,7 @@ class ViewController: UIViewController {
                 
             // otherwise flip was a miss
             else {
-                
+                SoundManager.instance.playSound(sound: "smb3_bonus_game_no_match");
                 // increment missCount
                 missCount += 1;
                 
@@ -268,6 +305,7 @@ class ViewController: UIViewController {
                     let alertController = UIAlertController(title: "Miss Limit", message: "You've missed twice! Try again!", preferredStyle: .alert)
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
                     self.present(alertController, animated: true, completion: nil)
+                    SoundManager.instance.playSound(sound: "smb3_game_over");
                     softReset();
                 }
                     
@@ -385,7 +423,7 @@ class ViewController: UIViewController {
     // this function creates a new round
     // user keeps score from previous round
     func newRound() {
-        
+        SoundManager.instance.playSound(sound: "smb3_enter_level");
         roundCount += 1;
         // create array of all cards
         let btnCardArray = [btnCardImg_0, btnCardImg_1, btnCardImg_2, btnCardImg_3, btnCardImg_4, btnCardImg_5, btnCardImg_6, btnCardImg_7, btnCardImg_8, btnCardImg_9, btnCardImg_10, btnCardImg_11, btnCardImg_12, btnCardImg_13, btnCardImg_14, btnCardImg_15, btnCardImg_16, btnCardImg_17];
