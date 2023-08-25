@@ -288,7 +288,12 @@ class ViewController: UIViewController {
                     SoundManager.instance.playSound(sound: "smb3_level_clear");
                     
                     // start new round
-                    newRound();
+                    let seconds = 4.0
+                    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                        // Put your code which should be executed with a delay here
+                        self.newRound();
+                    }
+                    
                 }
             }
                 
@@ -301,12 +306,17 @@ class ViewController: UIViewController {
                 // if missCount == 2, alert
                 // user of softReset() and do softReset()
                 if (missCount == 2) {
+                    let seconds = 1.0
+                    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                        // Put your code which should be executed with a delay here
+                        let alertController = UIAlertController(title: "Miss Limit", message: "You've missed twice! Try again!", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alertController, animated: true, completion: nil)
+                        SoundManager.instance.playSound(sound: "smb3_game_over");
+                        self.softReset();
+                    }
                     
-                    let alertController = UIAlertController(title: "Miss Limit", message: "You've missed twice! Try again!", preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
-                    self.present(alertController, animated: true, completion: nil)
-                    SoundManager.instance.playSound(sound: "smb3_game_over");
-                    softReset();
+                    
                 }
                     
                 // otherwise miss was first miss so flip back last two cards
@@ -316,16 +326,22 @@ class ViewController: UIViewController {
                 // set firstFlip == true for beginning of next turn
                 else {
                     
-                    // flip back first card
-                    cardFlipBack(index: index, btnCard: btnCard);
-                    
                     // get index and name of lastCardFlipped and flip back
                     let lastBtnCardFlipped = btnCardArray[lastCardFlippedIndex!];
-                    cardFlipBack(index: lastCardFlippedIndex!, btnCard: lastBtnCardFlipped!);
-                    lastCardFlippedIndex = nil;
-                    firstFlip = true;
-                    matchCount = 0;
-                    matchComboMultiplier = 0;
+                    
+                    let seconds = 0.5
+                    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                        // Put your code which should be executed with a delay here
+                        
+                        // flip back first card
+                        self.cardFlipBack(index: index, btnCard: btnCard);
+                        self.cardFlipBack(index: self.lastCardFlippedIndex!, btnCard: lastBtnCardFlipped!);
+                        self.lastCardFlippedIndex = nil;
+                        self.firstFlip = true;
+                        self.matchCount = 0;
+                        self.matchComboMultiplier = 0;
+                    }
+                    
                 }
             }
         }
