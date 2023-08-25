@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10642B722A984D5E00AAED6C /* smb3_level_clear.wav in Resources */ = {isa = PBXBuildFile; fileRef = 10642B6D2A984D5E00AAED6C /* smb3_level_clear.wav */; };
+		10642B732A984D5E00AAED6C /* smb3_1-up.wav in Resources */ = {isa = PBXBuildFile; fileRef = 10642B6E2A984D5E00AAED6C /* smb3_1-up.wav */; };
+		10642B742A984D5E00AAED6C /* smb3_game_over.wav in Resources */ = {isa = PBXBuildFile; fileRef = 10642B6F2A984D5E00AAED6C /* smb3_game_over.wav */; };
+		10642B752A984D5E00AAED6C /* smb3_coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 10642B702A984D5E00AAED6C /* smb3_coin.wav */; };
+		10642B762A984D5E00AAED6C /* smb3_enter_level.wav in Resources */ = {isa = PBXBuildFile; fileRef = 10642B712A984D5E00AAED6C /* smb3_enter_level.wav */; };
+		10642B782A9852DF00AAED6C /* smb3_bonus_game_no_match.wav in Resources */ = {isa = PBXBuildFile; fileRef = 10642B772A9852DF00AAED6C /* smb3_bonus_game_no_match.wav */; };
+		10642B7A2A98530000AAED6C /* smb3_nspade_match.wav in Resources */ = {isa = PBXBuildFile; fileRef = 10642B792A98530000AAED6C /* smb3_nspade_match.wav */; };
+		10642B7C2A98546900AAED6C /* smb3_inventory_open_close.wav in Resources */ = {isa = PBXBuildFile; fileRef = 10642B7B2A98546900AAED6C /* smb3_inventory_open_close.wav */; };
 		10C25B342221F4330046963C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C25B332221F4330046963C /* AppDelegate.swift */; };
 		10C25B362221F4330046963C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C25B352221F4330046963C /* ViewController.swift */; };
 		10C25B392221F4330046963C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10C25B372221F4330046963C /* Main.storyboard */; };
@@ -15,6 +23,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10642B6D2A984D5E00AAED6C /* smb3_level_clear.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = smb3_level_clear.wav; sourceTree = "<group>"; };
+		10642B6E2A984D5E00AAED6C /* smb3_1-up.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "smb3_1-up.wav"; sourceTree = "<group>"; };
+		10642B6F2A984D5E00AAED6C /* smb3_game_over.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = smb3_game_over.wav; sourceTree = "<group>"; };
+		10642B702A984D5E00AAED6C /* smb3_coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = smb3_coin.wav; sourceTree = "<group>"; };
+		10642B712A984D5E00AAED6C /* smb3_enter_level.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = smb3_enter_level.wav; sourceTree = "<group>"; };
+		10642B772A9852DF00AAED6C /* smb3_bonus_game_no_match.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = smb3_bonus_game_no_match.wav; sourceTree = "<group>"; };
+		10642B792A98530000AAED6C /* smb3_nspade_match.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = smb3_nspade_match.wav; sourceTree = "<group>"; };
+		10642B7B2A98546900AAED6C /* smb3_inventory_open_close.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = smb3_inventory_open_close.wav; sourceTree = "<group>"; };
 		10C25B302221F4330046963C /* Mario 3 Card Match!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mario 3 Card Match!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C25B332221F4330046963C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10C25B352221F4330046963C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +51,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10642B6C2A984D3900AAED6C /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				10642B6E2A984D5E00AAED6C /* smb3_1-up.wav */,
+				10642B702A984D5E00AAED6C /* smb3_coin.wav */,
+				10642B772A9852DF00AAED6C /* smb3_bonus_game_no_match.wav */,
+				10642B7B2A98546900AAED6C /* smb3_inventory_open_close.wav */,
+				10642B792A98530000AAED6C /* smb3_nspade_match.wav */,
+				10642B712A984D5E00AAED6C /* smb3_enter_level.wav */,
+				10642B6F2A984D5E00AAED6C /* smb3_game_over.wav */,
+				10642B6D2A984D5E00AAED6C /* smb3_level_clear.wav */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		10C25B272221F4330046963C = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +85,7 @@
 		10C25B322221F4330046963C /* Mario 3 Card Match! */ = {
 			isa = PBXGroup;
 			children = (
+				10642B6C2A984D3900AAED6C /* Sounds */,
 				10C25B332221F4330046963C /* AppDelegate.swift */,
 				10C25B352221F4330046963C /* ViewController.swift */,
 				10C25B372221F4330046963C /* Main.storyboard */,
@@ -123,9 +155,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10642B782A9852DF00AAED6C /* smb3_bonus_game_no_match.wav in Resources */,
+				10642B732A984D5E00AAED6C /* smb3_1-up.wav in Resources */,
+				10642B762A984D5E00AAED6C /* smb3_enter_level.wav in Resources */,
+				10642B7C2A98546900AAED6C /* smb3_inventory_open_close.wav in Resources */,
 				10C25B3E2221F4330046963C /* LaunchScreen.storyboard in Resources */,
 				10C25B3B2221F4330046963C /* Assets.xcassets in Resources */,
+				10642B722A984D5E00AAED6C /* smb3_level_clear.wav in Resources */,
 				10C25B392221F4330046963C /* Main.storyboard in Resources */,
+				10642B752A984D5E00AAED6C /* smb3_coin.wav in Resources */,
+				10642B7A2A98530000AAED6C /* smb3_nspade_match.wav in Resources */,
+				10642B742A984D5E00AAED6C /* smb3_game_over.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
