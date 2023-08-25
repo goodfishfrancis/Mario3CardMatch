@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import AVFoundation
 
 
 class SoundManager {
@@ -54,6 +55,7 @@ class ViewController: UIViewController {
     var firstFlip = true;
     var previousRoundScore = 0;
     var roundCount = 0;
+    var SoundtrackPlayer = AVAudioPlayer();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +66,16 @@ class ViewController: UIViewController {
         
         // display score
         lblScore.text = "\(Int(score))"
+        
+        let Soundtrack = NSURL(fileURLWithPath: Bundle.main.path(forResource: "smb3_nspade", ofType: "mp3")!)
+        do {
+            SoundtrackPlayer = try AVAudioPlayer(contentsOf: Soundtrack as URL);
+        } catch let error {
+            print("Error playing soundtrack... \(error.localizedDescription)");
+        }
+        SoundtrackPlayer.prepareToPlay()
+        SoundtrackPlayer.numberOfLoops = -1
+        SoundtrackPlayer.play()
     }
 
  
@@ -288,7 +300,12 @@ class ViewController: UIViewController {
                     SoundManager.instance.playSound(sound: "smb3_level_clear");
                     
                     // start new round
-                    newRound();
+                    let seconds = 4.0
+                    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                        // Put your code which should be executed with a delay here
+                        self.newRound();
+                    }
+                    
                 }
             }
                 
@@ -301,12 +318,17 @@ class ViewController: UIViewController {
                 // if missCount == 2, alert
                 // user of softReset() and do softReset()
                 if (missCount == 2) {
+                    self.SoundtrackPlayer.stop();
+                    let seconds = 1.0
+                    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                        // Put your code which should be executed with a delay here
+                        let alertController = UIAlertController(title: "Miss Limit", message: "You've missed twice! Try again!", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
+                        self.present(alertController, animated: true, completion: nil)
+                        self.softReset();
+                    }
                     
-                    let alertController = UIAlertController(title: "Miss Limit", message: "You've missed twice! Try again!", preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertAction.Style.default, handler: nil))
-                    self.present(alertController, animated: true, completion: nil)
-                    SoundManager.instance.playSound(sound: "smb3_game_over");
-                    softReset();
+                    
                 }
                     
                 // otherwise miss was first miss so flip back last two cards
@@ -316,16 +338,22 @@ class ViewController: UIViewController {
                 // set firstFlip == true for beginning of next turn
                 else {
                     
-                    // flip back first card
-                    cardFlipBack(index: index, btnCard: btnCard);
-                    
                     // get index and name of lastCardFlipped and flip back
                     let lastBtnCardFlipped = btnCardArray[lastCardFlippedIndex!];
-                    cardFlipBack(index: lastCardFlippedIndex!, btnCard: lastBtnCardFlipped!);
-                    lastCardFlippedIndex = nil;
-                    firstFlip = true;
-                    matchCount = 0;
-                    matchComboMultiplier = 0;
+                    
+                    let seconds = 0.5
+                    DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+                        // Put your code which should be executed with a delay here
+                        
+                        // flip back first card
+                        self.cardFlipBack(index: index, btnCard: btnCard);
+                        self.cardFlipBack(index: self.lastCardFlippedIndex!, btnCard: lastBtnCardFlipped!);
+                        self.lastCardFlippedIndex = nil;
+                        self.firstFlip = true;
+                        self.matchCount = 0;
+                        self.matchComboMultiplier = 0;
+                    }
+                    
                 }
             }
         }
@@ -341,6 +369,7 @@ class ViewController: UIViewController {
     // this function resets all cards to face down and
     // sets score == 0 but does not shuffle the board
     func softReset() {
+        SoundtrackPlayer.play();
         // create array of all cards
         let btnCardArray = [btnCardImg_0, btnCardImg_1, btnCardImg_2, btnCardImg_3, btnCardImg_4, btnCardImg_5, btnCardImg_6, btnCardImg_7, btnCardImg_8, btnCardImg_9, btnCardImg_10, btnCardImg_11, btnCardImg_12, btnCardImg_13, btnCardImg_14, btnCardImg_15, btnCardImg_16, btnCardImg_17];
         
